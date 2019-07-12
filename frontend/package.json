@@ -1,0 +1,23 @@
+{
+  "name": "frontend",
+  "description": "interiorforyou.ru",
+  "author": "Denis R <sjk11@yandex.ru>",
+  "version": "0.0.1",
+  "scripts": {
+    "watch:server": "cross-env NODE_ENV=development webpack --watch --config ./build/webpack.server.config.js --progress --hide-modules"
+  },
+  "engines": {
+    "node": ">=7.0",
+    "npm": ">=4.0"
+  },
+  "dependencies": {
+    "@babel/polyfill": "^7.0.0",
+    "@babel/runtime": "^7.4.5",
+    "@babel/runtime-corejs2": "^7.4.5",
+    "axios": "^0.19.0",
+  },
+  "devDependencies": {
+    "@babel/core": "^7.4.5",
+    "@babel/plugin-proposal-class-properties": "^7.0.0",
+  }
+}
