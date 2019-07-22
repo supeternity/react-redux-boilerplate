@@ -92,7 +92,8 @@ services:
                 max-file: "2"
 
     nodejs9:
-        build: ./frontend
+        build:
+            ./frontend
         container_name: nodejs9.${PROJECT_NAME}
         env_file: .env
         ports:

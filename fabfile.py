@@ -154,7 +154,7 @@ def psql(database=''):
 
 
 @task
-def restart():
+def dc_restart():
     local('docker-compose restart')
 
 
@@ -165,7 +165,7 @@ def npm_i(args=''):
 
 @task
 def run_dev(args=''):
-    local('docker-compose exec nodejs9 npm run dev')
+    local('docker-compose exec nodejs9 npm run start')
 
 
 @task

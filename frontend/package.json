@@ -1,23 +1,35 @@
 {
   "name": "frontend",
-  "description": "interiorforyou.ru",
-  "author": "Denis R <sjk11@yandex.ru>",
+  "description": "Ceramic3D Designers Attestation | React SPA",
+  "author": "Dmitry Raykov <rrayd@protonmail.com>",
   "version": "0.0.1",
+  "private": true,
   "scripts": {
-    "watch:server": "cross-env NODE_ENV=development webpack --watch --config ./build/webpack.server.config.js --progress --hide-modules"
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test"
   },
   "engines": {
     "node": ">=7.0",
     "npm": ">=4.0"
   },
   "dependencies": {
-    "@babel/polyfill": "^7.0.0",
-    "@babel/runtime": "^7.4.5",
-    "@babel/runtime-corejs2": "^7.4.5",
-    "axios": "^0.19.0",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6"
   },
-  "devDependencies": {
-    "@babel/core": "^7.4.5",
-    "@babel/plugin-proposal-class-properties": "^7.0.0",
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   }
 }
