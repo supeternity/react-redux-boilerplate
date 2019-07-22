@@ -17,16 +17,9 @@ instalation:
 
  * fab build
  * fab start
+ * fab npm_i
  * fab migrate
- * fab imprt_cities
  * fab runserver
- * fab run_watch
  * fab run_dev
  * ...
  * profit
-
- ### deploy:
-
- * connect
- * cd to /home/hamster/
- * git pull; docker-compose -f docker-compose.production.yml build; docker-compose down; docker-compose -f docker-compose.production.yml up -d
