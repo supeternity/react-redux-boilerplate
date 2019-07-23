@@ -1,11 +1,12 @@
 import React from 'react';
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import routes from '../router';
 import styles from './App.module.scss';
 import Button from '@material-ui/core/Button';
 
 function goMaterialHelp() {
   window.open('https://material-ui.com/getting-started/usage', '_blank').focus()
 }
-
 function getWelcome() {
   return (
     <>
@@ -21,16 +22,39 @@ function getWelcome() {
     </>
   )
 }
-
+// wrap <Route> and use this everywhere instead, then when
+// sub routes are added to any route it'll work
+function RouteWithSubRoutes(route) {
+  return (
+    <Route
+      path={route.path}
+      render={props => (
+        // pass the sub-routes down to keep nesting
+        <route.component {...props} routes={route.routes} />
+      )}
+    />
+  );
+}
 function App() {
   return (
-    <div className={styles.app}>
-      <header>
-        <h1>Ceramic3D React SPA Boilerplate</h1>
-          { getWelcome() }
-        <hr/>
-      </header>
-    </div>
+    <Router>
+      <div className={styles.app}>
+        <header>
+          <h1>Ceramic3D React SPA Boilerplate</h1>
+            { getWelcome() }
+          <hr/>
+        </header>
+        <nav>
+          <Link to="/manage">Список ссылок</Link>&nbsp;
+          <Link to="/project">Страница проекта</Link>
+        </nav>
+        <content>
+          {routes.map((route, i) => (
+            <RouteWithSubRoutes key={i} {...route} />
+          ))}
+        </content>
+      </div>
+    </Router>
   );
 }
 
