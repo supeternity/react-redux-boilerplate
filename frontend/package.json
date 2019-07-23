@@ -1,21 +1,23 @@
 {
-  "name": "frontend",
+  "name": "alpaca_frontend",
   "description": "Ceramic3D Designers Attestation | React SPA",
-  "author": "Dmitry Raykov <rrayd@protonmail.com>",
+  "author": "Ceramic3D <info@ceramic3d.ru>",
   "version": "0.0.1",
   "private": true,
+  "dependencies": {
+    "@babel/runtime": "^7.5.5",
+    "@material-ui/core": "^4.2.1",
+    "@material-ui/icons": "^4.2.1",
+    "node-sass": "^4.12.0",
+    "normalize.css": "^8.0.1",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "react-scripts": "3.0.1",
+    "typeface-roboto": "0.0.75"
+  },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test"
-  },
-  "engines": {
-    "node": ">=7.0",
-    "npm": ">=4.0"
-  },
-  "dependencies": {
-    "react": "^16.8.6",
-    "react-dom": "^16.8.6"
+    "build": "react-scripts build"
   },
   "eslintConfig": {
     "extends": "react-app"
