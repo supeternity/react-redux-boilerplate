@@ -1,16 +1,17 @@
-// subroutes future
+import createRouter from "router5";
+import browserPlugin from "router5-plugin-browser";
+import routes from "./routes";
 
-function route(url, view, subroutes) {
-  return {
-    path: url,
-    component: import(`../pages/${view}.jsx`)
-  }
+export default function configureRouter() {
+  const router = createRouter(routes, {
+    defaultRoute: "main"
+  })
+    // Plugins
+    .usePlugin(
+      browserPlugin({
+        useHash: true
+      })
+    );
+
+  return router;
 }
-
-const routes = [
-  route('/', 'Main'),
-  route('/manage/:slug', 'Manage'),
-  route('/project/:slug', 'Project')
-];
-
-export default routes;
