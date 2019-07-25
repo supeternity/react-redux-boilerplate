@@ -19,7 +19,7 @@ function Content({ route }) {
       return <Create />;
     case "project":
       return <Project />;
-    case "project.upload":
+    case "upload":
       return <Upload />;
     default:
       return <NotFound />;

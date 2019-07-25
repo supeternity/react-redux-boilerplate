@@ -15,7 +15,7 @@ function Nav(props) {
       <BaseLink router={router} routeName="links.create">
         Создать ссылку
       </BaseLink>
-      <BaseLink router={router} routeName="project.upload" routeParams={{ id: 1 }}>
+      <BaseLink router={router} routeName="upload" routeParams={{ id: 1 }}>
         Загрузка проекта
       </BaseLink>
       <BaseLink router={router} routeName="project" routeParams={{ id: 1 }}>

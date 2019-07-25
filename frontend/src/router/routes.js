@@ -3,5 +3,5 @@ export default [
   { name: "links", path: "/links" },
   { name: "links.create", path: "/create" },
   { name: "project", path: "/project/:id" },
-  { name: "project.upload", path: "/upload/:id" }
+  { name: "upload", path: "/upload/:id" }
 ];

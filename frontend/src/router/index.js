@@ -7,7 +7,7 @@ export default function configureRouter() {
     defaultRoute: "main"
   }).usePlugin(
     browserPlugin({
-      useHash: true
+      useHash: false
     })
   );
   return router;
