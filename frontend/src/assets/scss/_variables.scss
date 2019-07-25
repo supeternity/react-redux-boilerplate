@@ -1,5 +1,25 @@
+@import './sizes';
+
+// colors
 $white: #ffffff !default;
 $base: #308BD2 !default;
 $base-light: #3FB6F4 !default;
 $text: #434242 !default;
 $text-light: #808080 !default;
+
+// layout desctop
+$desctop-root-container-padding: 0 $vw31;
+
+// layout mobile
+$mobile-root-container-padding: 0 $vw8;
+
+
+:export {
+  white: $white;
+  base: $base;
+  baseLight: $base-light;
+  text: $text;
+  text-light: $text-light;
+  desctopRootContainerPadding: $desctop-root-container-padding;
+  mobileRootContainerPadding: $mobile-root-container-padding;
+}

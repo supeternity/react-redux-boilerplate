@@ -20,6 +20,7 @@
     "redux-router5": "5.5.0",
     "redux-thunk": "^2.3.0",
     "router5": "6.2.1",
+    "styled-components": "^4.3.2",
     "typeface-roboto": "0.0.75"
   },
   "scripts": {
