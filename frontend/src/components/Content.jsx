@@ -26,7 +26,7 @@ function Content({ route }) {
   }
 }
 
-export default connect(routeNodeSelector(''))(Project)
+export default connect(routeNodeSelector(''))(Content)
 
 // crazy reference for mapStateToProps and! mapDispatchToProps AND! this router
 // https://github.com/nanopx/electron-react-redux-router5/blob/master/src/layouts/Counter.jsx
