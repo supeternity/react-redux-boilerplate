@@ -1,0 +1,23 @@
+import { createStore, applyMiddleware, combineReducers, compose } from "redux";
+import { router5Middleware, router5Reducer } from "redux-router5";
+import { rootReducer } from "../reducers";
+import thunk from "redux-thunk";
+import logger from "redux-logger";
+
+const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+
+export default function configureStore(router) {
+  const store = createStore(
+    combineReducers({
+      router: router5Reducer,
+      rootReducer
+    }),
+    composeEnhancer(applyMiddleware(
+      router5Middleware(router),
+      thunk,
+      logger
+    ))
+  )
+  window.store = store
+  return store
+}

@@ -5,7 +5,6 @@
 .localstorage
 .module-cache
 .vscode
-public/
 */settings/local.py
 *.pyc
 *.db
@@ -19,3 +18,4 @@ celerybeat-schedule
 !frontsolutions/.gitignore
 .env
 ./etc/postgre/dbdata
+./public

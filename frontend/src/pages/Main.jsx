@@ -1,12 +1,13 @@
 import React from 'react';
-import styles from './App.module.scss';
+import { connect } from "react-redux";
+import { routeNodeSelector } from "redux-router5";
+
 import Button from '@material-ui/core/Button';
 
 function goMaterialHelp() {
   window.open('https://material-ui.com/getting-started/usage', '_blank').focus()
 }
-
-function getWelcome() {
+function Main() {
   return (
     <>
       <h2>Keep<br/>calm<br/>and<br/>use</h2>
@@ -22,16 +23,7 @@ function getWelcome() {
   )
 }
 
-function App() {
-  return (
-    <div className={styles.app}>
-      <header>
-        <h1>Ceramic3D React SPA Boilerplate</h1>
-          { getWelcome() }
-        <hr/>
-      </header>
-    </div>
-  );
-}
+export default connect(routeNodeSelector(''))(Main)
 
-export default App;
+// crazy reference for mapStateToProps and! mapDispatchToProps AND! this router
+// https://github.com/nanopx/electron-react-redux-router5/blob/master/src/layouts/Counter.jsx
