@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from "react-redux";
-import { createRouteNodeSelector } from "redux-router5";
+import { routeNodeSelector } from "redux-router5";
 
 import Button from '@material-ui/core/Button';
 
@@ -23,7 +23,7 @@ function Main() {
   )
 }
 
-export default connect(createRouteNodeSelector('main'))(Main)
+export default connect(routeNodeSelector(''))(Main)
 
 // crazy reference for mapStateToProps and! mapDispatchToProps AND! this router
 // https://github.com/nanopx/electron-react-redux-router5/blob/master/src/layouts/Counter.jsx
