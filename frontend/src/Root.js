@@ -3,16 +3,14 @@ import { connect } from "react-redux";
 
 import Header from "./components/Header";
 import Nav from "./components/Nav";
-import Content from "./components/Content";
+import RouterContent from "./router/RouterContent";
 
 export function Root() {
   return (
     <>
       <Header/>
-      <aside>
-        <Nav/>
-      </aside>
-      <Content/>
+      <Nav/>
+      <RouterContent/>
     </>
   );
 }

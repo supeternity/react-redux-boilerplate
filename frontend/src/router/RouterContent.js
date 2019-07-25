@@ -7,9 +7,9 @@ import Links from "../pages/Links";
 import Create from "../pages/Create";
 import Project from "../pages/Project";
 import Upload from "../pages/Upload";
-import NotFound from "./NotFound";
+import NotFound from "../components/NotFound";
 
-function Content({ route }) {
+function RouterContent({ route }) {
   switch (route.name) {
     case "main":
       return <Main />;
@@ -26,7 +26,7 @@ function Content({ route }) {
   }
 }
 
-export default connect(routeNodeSelector(''))(Content)
+export default connect(routeNodeSelector(''))(RouterContent)
 
 // crazy reference for mapStateToProps and! mapDispatchToProps AND! this router
 // https://github.com/nanopx/electron-react-redux-router5/blob/master/src/layouts/Counter.jsx
