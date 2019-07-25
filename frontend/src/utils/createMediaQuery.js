@@ -17,7 +17,11 @@ export default function adaptive(req) {
     switch (req.device) {
       case "iPhone4":
         return css`
-          @media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (-webkit-min-device-pixel-ratio: 2) ${() => {
+          @media only screen
+            and (min-device-width: 320px)
+            and (max-device-width: 480px)
+            and (-webkit-min-device-pixel-ratio: 2)
+            ${() => {
               return req.orientation
                 ? `and (orientation: ${req.orientation})`
                 : ``;
@@ -27,7 +31,11 @@ export default function adaptive(req) {
         `;
       case "iPhone5":
         return css`
-          @media only screen and (min-device-width: 320px) and (max-device-width: 568px) and (-webkit-min-device-pixel-ratio: 2) ${() => {
+          @media only screen
+            and (min-device-width: 320px)
+            and (max-device-width: 568px)
+            and (-webkit-min-device-pixel-ratio: 2)
+            ${() => {
               return req.orientation
                 ? `and (orientation: ${req.orientation})`
                 : ``;
@@ -37,7 +45,11 @@ export default function adaptive(req) {
         `;
       case "iPhone678":
         return css`
-          @media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) ${() => {
+          @media only screen
+            and (min-device-width: 375px)
+            and (max-device-width: 667px)
+            and (-webkit-min-device-pixel-ratio: 2)
+            ${() => {
               return req.orientation
                 ? `and (orientation: ${req.orientation})`
                 : ``;
@@ -47,7 +59,11 @@ export default function adaptive(req) {
         `;
       case "iPhone678plus":
         return css`
-          @media only screen and (min-device-width: 414px) and (max-device-width: 736px) and (-webkit-min-device-pixel-ratio: 3) ${() => {
+          @media only screen
+            and (min-device-width: 414px)
+            and (max-device-width: 736px)
+            and (-webkit-min-device-pixel-ratio: 3)
+            ${() => {
               return req.orientation
                 ? `and (orientation: ${req.orientation})`
                 : ``;
@@ -57,7 +73,11 @@ export default function adaptive(req) {
         `;
       case "iPhoneX":
         return css`
-          @media only screen and (min-device-width: 375px) and (max-device-width: 812px) and (-webkit-min-device-pixel-ratio: 3) ${() => {
+          @media only screen
+            and (min-device-width: 375px)
+            and (max-device-width: 812px)
+            and (-webkit-min-device-pixel-ratio: 3)
+            ${() => {
               return req.orientation
                 ? `and (orientation: ${req.orientation})`
                 : ``;

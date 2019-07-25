@@ -15,7 +15,6 @@ const RootContainer = styled.div`
   padding: ${p => p.theme.desctopRootContainerPadding};
   ${adaptive({
     device: "iPhone678",
-    orientation: "",
     style: `
       padding: ${p => p.theme.mobileRootContainerPadding};
       background-color: red;
@@ -23,7 +22,7 @@ const RootContainer = styled.div`
   })}
   ${adaptive({
     device: "iPhoneX",
-    orientation: "",
+    orientation: "l",
     style: `
       padding: ${p => p.theme.mobileRootContainerPadding};
       background-color: green;
