@@ -11,34 +11,33 @@ import RouterContent from "./router/RouterContent";
 // styled-components
 import styled from "styled-components";
 import adaptive from "./utils/createMediaQuery";
-const RootContainer = styled.div`
-  padding: ${p => p.theme.desctopRootContainerPadding};
+const AppContainer = styled.div`
+  padding: ${p => p.theme.desctopAppContainerPadding};
   ${adaptive({
     device: "iPhone678",
-    orientation: "",
     style: `
-      padding: ${p => p.theme.mobileRootContainerPadding};
+      padding: ${p => p.theme.mobileAppContainerPadding};
       background-color: red;
     `
   })}
   ${adaptive({
     device: "iPhoneX",
-    orientation: "",
+    orientation: "l",
     style: `
-      padding: ${p => p.theme.mobileRootContainerPadding};
+      padding: ${p => p.theme.mobileAppContainerPadding};
       background-color: green;
     `
   })}
 `;
 
 // compose
-export function Root() {
+export function App() {
   return (
-    <RootContainer>
+    <AppContainer>
       <Header />
       <Nav />
       <RouterContent />
-    </RootContainer>
+    </AppContainer>
   );
 }
 
@@ -49,5 +48,5 @@ const mapStateToProps = store => ({
 //   anyAction: value => dispatch(anyAction(value)),
 // });
 
-// export default connect(mapStateToProps, mapDispatchToProps)(Root);
-export default connect(mapStateToProps)(Root);
+// export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default connect(mapStateToProps)(App);

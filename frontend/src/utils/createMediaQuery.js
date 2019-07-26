@@ -1,17 +1,17 @@
 // req = {
-//  * device: see the switch section cases,
-//  * orientation: 'p' || 'l' (portrait or landscape)
-//    if orientation is empty '', created 'Portrait and Landscape' query
-//  * style: easy css for device
+//  * device:       string: see the switch section cases,
+//  * orientation:  string: 'p' || 'l' || 'portrait' || 'landscape'
+//    if orientation is false, created 'Portrait and Landscape' query
+//  * style:        string: easy css for device
 // }
 
 import { css } from "styled-components";
 
 export default function adaptive(req) {
   if (typeof req === "object" && req !== null) {
-    if (req.orientation === "p") {
+    if (req.orientation === "p" || req.orientation === "portrait") {
       req.orientation = "portrait";
-    } else if (req.orientation === "l") {
+    } else if (req.orientation === "l" || req.orientation === "landscape") {
       req.orientation = "landscape";
     }
     switch (req.device) {
