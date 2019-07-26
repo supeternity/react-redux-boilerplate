@@ -11,8 +11,8 @@ class ClientLinkSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = certification_models.ClientLink
-        exclude = ('uuid',)
-        read_only_fields = ('status', 'user')
+        fields = '__all__'
+        read_only_fields = ('status', 'user', 'uuid')
 
     def get_status_display(self, obj):
         return obj.get_status_display()
