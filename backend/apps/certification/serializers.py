@@ -27,6 +27,10 @@ class CreateClientLinkSerializer(ClientLinkSerializer):
         fields = ('key_id', 'shop_name', 'yur_name', 'client_fio', 'email', 'cert_template', 'status_display', 'cert_template_display')
         model = certification_models.ClientLink
 
+    def create(self, validate_data):
+        validate_data['user'] = self.context['user']
+        return super().create(validate_data)
+
 
 class UpdateClientLinkSerializer(ClientLinkSerializer):
 
