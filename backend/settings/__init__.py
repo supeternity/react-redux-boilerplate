@@ -153,7 +153,7 @@ INSTALLED_APPS += (
     # Project apps
     'backend.base',
     'backend.apps.users',
-    # 'backend.apps.sitetree',
+    'backend.apps.certification',
     # 'backend.apps.catalog',
     # 'backend.apps.statdata',
 )
@@ -226,9 +226,8 @@ CONSTANCE_CONFIG = {
     'SITE_NAME': ('', 'название'),
     'SITE_PHONE': ('телефон', 'SITE PHONE'),
     'SITE_EMAIL': ('email', 'SITE EMAIL'),
-    'TAG_METATAGS': ('', 'метатэги', str,),
-    'TAG_COUNTERS': ('', 'Счетчики', str,),
     'FEEDBACK_EMAIL': ('', 'Почта для уведомлений', str,),
+    'LINK_DEFAULT_DELTA': (48, 'срок действия новой ссылки по умолчанию (часы)', int,),
 }
 
 # ==============================================================================
@@ -264,8 +263,8 @@ REST_FRAMEWORK = {
         'backend.base.authentication.CookieTokenAuthentication',
     ),
     'DEFAULT_PERMISSION_CLASSES': (
-        # 'rest_framework.permissions.IsAuthenticated',
-        'rest_framework.permissions.IsAuthenticatedOrReadOnly',
+        'rest_framework.permissions.IsAdminUser',
+        # 'rest_framework.permissions.IsAuthenticatedOrReadOnly',
     ),
     'DEFAULT_RENDERER_CLASSES': (
         'rest_framework.renderers.JSONRenderer',
