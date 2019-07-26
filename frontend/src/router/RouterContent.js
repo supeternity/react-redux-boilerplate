@@ -4,7 +4,7 @@ import { routeNodeSelector } from "redux-router5";
 
 import Main from "../pages/Main";
 import Links from "../pages/Links";
-import Create from "../pages/Create";
+import CreateLink from "../pages/CreateLink";
 import Project from "../pages/Project";
 import Upload from "../pages/Upload";
 import NotFound from "../components/NotFound";
@@ -15,8 +15,8 @@ function RouterContent({ route }) {
       return <Main />;
     case "links":
       return <Links />;
-    case "links.create":
-      return <Create />;
+    case "create-link":
+      return <CreateLink />;
     case "project":
       return <Project />;
     case "upload":

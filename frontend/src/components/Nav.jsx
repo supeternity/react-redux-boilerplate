@@ -12,7 +12,7 @@ function Nav(props) {
       <BaseLink router={router} routeName="links">
         Список ссылок
       </BaseLink>
-      <BaseLink router={router} routeName="links.create">
+      <BaseLink router={router} routeName="create-link">
         Создать ссылку
       </BaseLink>
       <BaseLink router={router} routeName="upload" routeParams={{ id: 1 }}>
