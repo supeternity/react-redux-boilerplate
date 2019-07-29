@@ -1,12 +1,30 @@
 import React from "react";
 import { connect } from "react-redux";
 import { routeNodeSelector } from "redux-router5";
+import NoUserAccess from "../components/NoUserAccess";
+import { setLoginDialogue } from "../actions/layout";
 
-function Links() {
-  return (<>Links.jsx</>);
+export class Links extends React.Component {
+  render() {
+    const { account, setLoginDialogue } = this.props;
+    if (!account.isAuth) {
+      setLoginDialogue(true);
+      return (<NoUserAccess />);
+    } else {
+      return (
+        <>
+          Links.jsx
+        </>
+      );
+    }
+  }
 }
 
-export default connect(routeNodeSelector('links'))(Links)
-
-// crazy reference for mapStateToProps and! mapDispatchToProps AND! this router
-// https://github.com/nanopx/electron-react-redux-router5/blob/master/src/layouts/Counter.jsx
+Links = connect(routeNodeSelector('links'))(Links);
+const mapStateToProps = store => ({
+  account: store.rootReducer.account
+});
+const mapDispatchToProps = dispatch => ({
+  setLoginDialogue: value => dispatch(setLoginDialogue(value))
+});
+export default connect(mapStateToProps, mapDispatchToProps)(Links);
