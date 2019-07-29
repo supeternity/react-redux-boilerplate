@@ -1,44 +1,31 @@
-const GET_USER_LOAD = "GET_USER_LOAD";
-const GET_USER_SUCCESS = "GET_USER_SUCCESS";
-const GET_USER_ERROR = "GET_USER_ERROR";
+import apiAction from "./core/apiAction";
+import apiUrls from "../router/apiUrls";
 
-const mock = new Promise((resolve, reject) => {
-  if (true) {
-    resolve({
-      name: 'Nino Katamadze',
-      age: '28'
-    })
-  } else {
-    reject({
-      code: 404
-    })
-  }
-});
+import {
+  USER_TOKEN_PROCESS,
+  USER_TOKEN_SUCCESS,
+  USER_TOKEN_FAILURE
+} from "./accountTypes";
 
-export const getUser = () => {
-  return dispatch => {
-    dispatch({
-      type: GET_USER_LOAD,
-      payload: true
-    })
-    mock
-      .then(resp => {
-        dispatch({
-          type: GET_USER_SUCCESS,
-          payload: resp
-        })
-      })
-      .catch(err => {
-        dispatch({
-          type: GET_USER_ERROR,
-          payload: err
-        })
-      })
-      .finally(() => {
-        dispatch({
-          type: GET_USER_LOAD,
-          payload: false
-        })
-      })
+export function getUserToken(pair) {
+  return apiAction({
+    url: apiUrls.USER.LOGIN,
+    onSuccess: setUserToken,
+    onFailure: failUserToken,
+    label: USER_TOKEN_PROCESS
+  });
+}
+
+function setUserToken(data) {
+  return {
+    type: USER_TOKEN_SUCCESS,
+    payload: data
   };
-};
+}
+
+function failUserToken(error) {
+  return {
+    type: USER_TOKEN_FAILURE,
+    payload: error
+  };
+}
