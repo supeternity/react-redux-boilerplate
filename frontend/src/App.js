@@ -1,8 +1,8 @@
 import React from "react";
 
 import Header from "./components/Header";
-import Nav from "./components/Nav";
 import RouterContent from "./router/RouterContent";
+import Overlays from "./components/overlays"
 
 // material-ui components
 // import Button from ...
@@ -34,8 +34,8 @@ export function App() {
   return (
     <AppContainer>
       <Header />
-      <Nav />
       <RouterContent />
+      <Overlays />
     </AppContainer>
   );
 }
