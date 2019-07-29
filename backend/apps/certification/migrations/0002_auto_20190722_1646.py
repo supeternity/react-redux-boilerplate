@@ -16,7 +16,7 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='clientlink',
             name='actived_to',
-            field=models.DateTimeField(default=backend.apps.certification.models.default_actived_to, verbose_name='Дата окончания доступа к ссылкe'),
+            field=models.DateTimeField(default=django.utils.timezone.now, verbose_name='Дата окончания доступа к ссылкe'),
         ),
         migrations.AddField(
             model_name='clientlink',
