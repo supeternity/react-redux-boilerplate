@@ -1,9 +1,8 @@
 import React from "react";
-import { connect } from "react-redux";
 
 import Header from "./components/Header";
-import Nav from "./components/Nav";
 import RouterContent from "./router/RouterContent";
+import Overlays from "./components/overlays"
 
 // material-ui components
 // import Button from ...
@@ -35,18 +34,10 @@ export function App() {
   return (
     <AppContainer>
       <Header />
-      <Nav />
       <RouterContent />
+      <Overlays />
     </AppContainer>
   );
 }
 
-const mapStateToProps = store => ({
-  account: store.account
-});
-// const mapDispatchToProps = dispatch => ({
-//   anyAction: value => dispatch(anyAction(value)),
-// });
-
-// export default connect(mapStateToProps, mapDispatchToProps)(App);
-export default connect(mapStateToProps)(App);
+export default App;
