@@ -1,4 +1,4 @@
-import apiAction from "./core/apiAction";
+import apiAction from "../core/actions/api";
 import apiUrls from "../router/apiUrls";
 
 import {
@@ -10,19 +10,18 @@ import {
 export function getUserToken(pair) {
   return apiAction({
     url: apiUrls.USER.LOGIN,
+    data: pair,
     onSuccess: setUserToken,
     onFailure: failUserToken,
     label: USER_TOKEN_PROCESS
   });
 }
-
 function setUserToken(data) {
   return {
     type: USER_TOKEN_SUCCESS,
     payload: data
   };
 }
-
 function failUserToken(error) {
   return {
     type: USER_TOKEN_FAILURE,

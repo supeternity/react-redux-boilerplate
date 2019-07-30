@@ -1,8 +1,8 @@
-import { API } from "./apiTypes";
+import { API } from "./types";
 
 export default function apiAction({
     url = "",
-    method = "GET",
+    method = "",
     data = null,
     accessToken = null,
     onSuccess = () => {},

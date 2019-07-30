@@ -1,7 +1,8 @@
 // inspired by https://leanpub.com/redux-book
 import axios from "axios";
-import { API } from "../actions/core/apiTypes";
-import { accessDenied, apiError, apiStart, apiEnd } from "../reducers/core/api";
+import { API } from "../../actions/api/types";
+import { accessDenied, apiError, apiStart, apiEnd } from "../../reducers/api";
+import getAccessToken from "../../utils/getAccessToken";
 
 const apiMiddleware = ({ dispatch }) => next => action => {
   next(action);
@@ -23,7 +24,7 @@ const apiMiddleware = ({ dispatch }) => next => action => {
   // axios default configs
   axios.defaults.port = 8000;
   axios.defaults.headers.common["Content-Type"] = "application/json";
-  axios.defaults.headers.common["Authorization"] = accessToken;
+  axios.defaults.headers.common["Authorization"] = accessToken || getAccessToken();
 
   if (label) {
     dispatch(apiStart(label));
