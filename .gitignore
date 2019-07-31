@@ -18,4 +18,4 @@ celerybeat-schedule
 !frontsolutions/.gitignore
 .env
 ./etc/postgre/dbdata
-./public
+/public

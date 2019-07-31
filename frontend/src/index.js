@@ -10,7 +10,7 @@ import configureStore from "./store";
 import { ThemeProvider } from "styled-components";
 import StylesProvider from "@material-ui/styles/ThemeProvider";
 import { createMuiTheme } from "@material-ui/core/styles";
-import Root from "./Root";
+import App from "./App";
 
 // global SCSS variables > js-object > ThemeProvider > all sub styled-components
 import themeForStyledComponents from "./assets/scss/_variables.scss";
@@ -27,17 +27,17 @@ const themeForMaterialUi = createMuiTheme({
 
 const router = configureRouter();
 const store = configureStore(router);
-const App = (
+const Compose = (
   <Provider store={store}>
     <RouterProvider router={router}>
       <ThemeProvider theme={themeForStyledComponents}>
         <StylesProvider theme={themeForMaterialUi}>
-          <Root />
+          <App />
         </StylesProvider>
       </ThemeProvider>
     </RouterProvider>
   </Provider>
 );
 router.start((err, state) => {
-  ReactDOM.render(App, document.getElementById("root"));
+  ReactDOM.render(Compose, document.getElementById("root"));
 });

@@ -23,16 +23,20 @@ urlpatterns = [
     path('api/v1/', include(extra_patterns)),
 ]
 
-admin.site.site_header = "Start Admin"
-admin.site.site_title = "Start Admin Portal"
-admin.site.index_title = "Welcome to Start Portal"
+admin.site.site_header = "alpaca Admin"
+admin.site.site_title = "alpaca Admin Portal"
+admin.site.index_title = "Welcome to alpaca Portal"
 
 if settings.DEBUG:
     import debug_toolbar
     from django.conf.urls.static import static
+    from rest_framework_swagger.views import get_swagger_view
 
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
     urlpatterns += static(settings.STATIC_ROOT, document_root=settings.STATIC_ROOT)
+
+    swagger_view = get_swagger_view(title='alpaca API')
+    urlpatterns.append(path('staff/swagger/', swagger_view),)
 
     urlpatterns = [
         path('__debug__/', include(debug_toolbar.urls)),

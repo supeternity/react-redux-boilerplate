@@ -8,10 +8,10 @@ $text: #434242 !default;
 $text-light: #808080 !default;
 
 // layout desctop
-$desctop-root-container-padding: 0 $vw31;
+$desctop-app-container-padding: 0 $vw31;
 
 // layout mobile
-$mobile-root-container-padding: 0 $vw8;
+$mobile-app-container-padding: 0 $vw8;
 
 
 :export {
@@ -19,7 +19,7 @@ $mobile-root-container-padding: 0 $vw8;
   base: $base;
   baseLight: $base-light;
   text: $text;
-  text-light: $text-light;
-  desctopRootContainerPadding: $desctop-root-container-padding;
-  mobileRootContainerPadding: $mobile-root-container-padding;
+  textLight: $text-light;
+  desctopAppContainerPadding: $desctop-app-container-padding;
+  mobileAppContainerPadding: $mobile-app-container-padding;
 }
