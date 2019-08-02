@@ -1,11 +1,26 @@
 import React from "react";
-// import { connect } from "react-redux";
+import { connect } from "react-redux";
+import { setLoginDialogue } from "../actions/layout";
+import Link from '@material-ui/core/Link';
+import Typography from '@material-ui/core/Typography';
 
-function Project() {
-  return (<>Для доступа нужно авторизоваться</>);
+export class NoUserAccess extends React.Component {
+  render() {
+    const { setLoginDialogue } = this.props;
+    const goToAuth = () => {
+      setLoginDialogue(true);
+    }
+    goToAuth();
+    return <Typography>
+      Для доступа нужно <Link onClick={goToAuth}>авторизоваться</Link>
+    </Typography>
+  }
 }
 
-export default Project;
-
-// crazy reference for mapStateToProps and! mapDispatchToProps AND! this router
-// https://github.com/nanopx/electron-react-redux-router5/blob/master/src/layouts/Counter.jsx
+const mapStateToProps = store => ({
+  account: store.rootReducer.account
+});
+const mapDispatchToProps = dispatch => ({
+  setLoginDialogue: value => dispatch(setLoginDialogue(value))
+});
+export default connect(mapStateToProps, mapDispatchToProps)(NoUserAccess);

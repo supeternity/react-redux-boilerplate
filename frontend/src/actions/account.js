@@ -9,7 +9,10 @@ import {
   USER_TOKEN_FAILURE,
   USER_DATA_PROCESS,
   USER_DATA_SUCCESS,
-  USER_DATA_FAILURE
+  USER_DATA_FAILURE,
+  USER_LOGOUT_PROCESS,
+  USER_LOGOUT_SUCCESS,
+  USER_LOGOUT_FAILURE,
 } from "./accountTypes";
 
 
@@ -60,6 +63,30 @@ function setCurrentUser(data) {
 function failCurrentUser(error) {
   return {
     type: USER_DATA_FAILURE,
+    payload: error
+  };
+}
+
+// logout
+export function logout() {
+  return apiAction({
+    method: 'POST',
+    url: apiUrls.USER.CURRENT,
+    onSuccess: successLogout,
+    onFailure: failLogout,
+    label: USER_LOGOUT_PROCESS,
+    loader: 'Загрузка информации о пользователе'
+  });
+}
+function successLogout(data) {
+  return {
+    type: USER_LOGOUT_SUCCESS,
+    payload: data
+  };
+}
+function failLogout(error) {
+  return {
+    type: USER_LOGOUT_FAILURE,
     payload: error
   };
 }

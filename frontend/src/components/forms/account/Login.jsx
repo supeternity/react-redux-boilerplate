@@ -17,7 +17,8 @@ const LoginForm = props => {
           <Field
             name="username"
             component={renderFieldInput}
-            label="E-mail" />
+            label="E-mail"
+            autoFocus />
         </div>
         <div>
           <Field
