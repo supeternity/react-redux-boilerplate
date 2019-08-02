@@ -9,7 +9,7 @@ import Overlays from "./components/overlays"
 
 // styled-components
 import styled from "styled-components";
-import adaptive from "./core/utils/createMediaQuery";
+import adaptive from "./core/utils/getMediaQuery";
 const AppContainer = styled.div`
   padding: ${p => p.theme.desctopAppContainerPadding};
   ${adaptive({

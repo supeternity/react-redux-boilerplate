@@ -1,18 +1,15 @@
 import React from "react";
-import validate from "./validate";
-
 import FormGroup from "@material-ui/core/FormGroup";
 import { Field, reduxForm } from "redux-form";
-import { renderFieldInput, renderCheckbox } from "../../../core/MUIReduxForms";
+import { renderFieldInput } from "../../../core/MUIReduxForms";
+import NonFieldErrors from "../NonFieldErrors";
+import { Button } from '@material-ui/core';
 
-const handleSubmit = function() {
-
-  console.log('auth handle submit')
-  
-}
+import { VALIDATION_LOGIN } from "../validator";
+const validate = VALIDATION_LOGIN;
 
 const LoginForm = props => {
-  const { pristine, submitting } = props;
+  const { pristine, submitting, handleSubmit, errors } = props;
   return (
     <FormGroup>
       <form onSubmit={handleSubmit}>
@@ -20,8 +17,7 @@ const LoginForm = props => {
           <Field
             name="username"
             component={renderFieldInput}
-            label="Логин"
-          />
+            label="E-mail" />
         </div>
         <div>
           <Field
@@ -31,22 +27,20 @@ const LoginForm = props => {
             type="password"
           />
         </div>
-        <div>
-          <Field
-            name="remember_me"
-            component={renderCheckbox}
-            label="Запомнить на этом компьютере"
-          />
-        </div>
-        <button type="submit" disabled={pristine || submitting}>
+        <NonFieldErrors messages={errors} />
+        <Button
+          type="submit"
+          disabled={pristine || submitting}
+          variant="contained"
+          color="primary">
           Войти
-        </button>
+        </Button>
       </form>
     </FormGroup>
   );
 };
 
 export default reduxForm({
-  form: "LoginForm", // a unique identifier for this form
+  form: "LoginForm",
   validate
 })(LoginForm);

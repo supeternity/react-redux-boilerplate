@@ -1,27 +1,48 @@
+import {
+  USER_TOKEN_PROCESS,
+  USER_TOKEN_SUCCESS,
+  USER_TOKEN_FAILURE,
+  USER_DATA_PROCESS,
+  USER_DATA_SUCCESS,
+  USER_DATA_FAILURE
+} from "../actions/accountTypes";
+
 export const initialState = {
   isAuth: false,
-  fetching: false,
-  error: null,
-  user: {}
+  error: null
 };
 
 export function accountReducer(state = initialState, action) {
   switch (action.type) {
-    case "GET_USER_LOAD":
+    case USER_TOKEN_PROCESS:
       return {
         ...state,
         fetching: action.payload
       };
-    case "GET_USER_ERROR":
+    case USER_TOKEN_SUCCESS:
+      return {
+        ...state,
+        usertoken: action.payload
+      };
+    case USER_TOKEN_FAILURE:
       return {
         ...state,
         error: action.payload
       };
-    case "GET_USER_SUCCESS":
+    case USER_DATA_PROCESS:
       return {
         ...state,
-        isAuth: true,
-        user: action.payload
+        fetching: action.payload
+      };
+    case USER_DATA_SUCCESS:
+      return {
+        ...state,
+        currentUser: action.payload
+      };
+    case USER_DATA_FAILURE:
+      return {
+        ...state,
+        error: action.payload
       };
     default:
       return state;

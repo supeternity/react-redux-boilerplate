@@ -8,6 +8,7 @@ export default function apiAction({
     onSuccess = () => {},
     onFailure = () => {},
     label = "",
+    loader = null,
     headersOverride = null
   }) {
     return {
@@ -20,6 +21,7 @@ export default function apiAction({
         onSuccess,
         onFailure,
         label,
+        loader,
         headersOverride
       }
     };
