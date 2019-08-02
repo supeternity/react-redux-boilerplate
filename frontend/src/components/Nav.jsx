@@ -2,7 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import { BaseLink } from "react-router5";
 
-function Nav(props) {
+const Nav = function(props) {
   const { router } = props;
   return (
     <nav>

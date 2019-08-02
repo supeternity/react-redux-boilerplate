@@ -1,17 +1,27 @@
+import {
+  SET_LOGIN_DIALOGUE,
+  SET_LOADER
+} from "../actions/layoutTypes";
+
+
 export const initialState = {
-  // dialogues
-  login: false
-  // sidebars
-  // ...
-  // themes etc...
+  // dialogues :: bool
+  login: false,
+  // snackbars :: null || string
+  XHRProgress: null
 };
 
 export function layoutReducer(state = initialState, action) {
   switch (action.type) {
-    case "SET_LOGIN_DIALOGUE":
+    case SET_LOGIN_DIALOGUE:
       return {
         ...state,
         login: action.payload
+      };
+    case SET_LOADER:
+      return {
+        ...state,
+        XHRProgress: action.payload
       };
     default:
       return state;
