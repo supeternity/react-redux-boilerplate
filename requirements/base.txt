@@ -1,6 +1,6 @@
 celery
 certifi
-Django==2
+Django==2.0.12
 django-annoying
 django-appconf
 django-autoslug
